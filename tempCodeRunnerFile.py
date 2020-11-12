@@ -1,0 +1,1 @@
+print('Phone:', fake.phone())
