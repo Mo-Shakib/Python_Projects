@@ -1,6 +1,11 @@
-var_1 = (10,8,5,2,10,15,10,8,5,8,8,2)
-var_2 = int(input("Enter the number: "))
+import requests
+from bs4 import BeautifulSoup
+def weather(location):
+    url = f'https://www.youtube.com/results?search_query=machine+learning+python'
+    r = requests.get(url)
+    s = BeautifulSoup(r.text, 'html.parser')
+    temperature = s.find('div', class_='style-scope ytd-video-renderer').text
+    temperature = temperature.split('°')
+    return temperature[0]
 
-for i in var_1:
-    count = var_1.count(var_2)
-print(var_2,"appers",count,"times in the tuple")
+print(weather(1))
