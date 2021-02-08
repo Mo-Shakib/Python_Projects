@@ -6,7 +6,7 @@ import string
 import time
 import os
 import sys
-os.system("title WARP-PLUS-CLOUDFLARE By ALIILAPRO")
+os.system("title WARP-PLUS-CLOUDFLARE By SHAKIB")
 os.system('cls' if os.name == 'nt' else 'clear')
 
 print('       _________ ____              ____    ____ ___.    \n'
@@ -18,13 +18,14 @@ print('       _________ ____              ____    ____ ___.    \n'
 
 print ("[+] ABOUT SCRIPT:")
 print ("[-] With this script, you can get unlimited GB on WARP+.")
-print ("[-] Version: 4.0.0")
+print ("[-] Version: 5.0.0")
 print ("--------")
 print ("[+] THIS SCRIPT CODDED BY SHAKIB") 
-print ("[-] SITE: code-shakib.github.io") 
+print ("[-] SITE: www.code-shakib.github.io") 
 print ("--------")
 
-referrer = input("[#] Enter the WARP+ ID:")
+referrer = input("[#] Enter the WARP+ ID: ")
+
 
 def genString(stringLength):
 	try:
@@ -53,47 +54,71 @@ def run():
 				"tos": datetime.datetime.now().isoformat()[:-3] + "+02:00",
 				"type": "Android",
 				"locale": "es_ES"}
+		
 		data = json.dumps(body).encode('utf8')
+
 		headers = {'Content-Type': 'application/json; charset=UTF-8',
 					'Host': 'api.cloudflareclient.com',
 					'Connection': 'Keep-Alive',
 					'Accept-Encoding': 'gzip',
 					'User-Agent': 'okhttp/3.12.1'
 					}
+
 		req         = urllib.request.Request(url, data, headers)
 		response    = urllib.request.urlopen(req)
 		status_code = response.getcode()	
 		return status_code
+		
 	except Exception as error:
 		print(error)	
 
 g = 0
 b = 0
+t = 10
 
-while True:
+while (t > 0):
 	result = run()
 	if result == 200:
 		g = g + 1
 		os.system('cls' if os.name == 'nt' else 'clear')
 		print("")
-		print("                  WARP-PLUS-CLOUDFLARE (script)" + " By SHAKIB")
+		print('       _________ ____              ____    ____ ___.    \n'
+'      /   _____/ |  |__   _____    |  | __ |__| \_ |__  \n'
+'      \_____  \  |  |  \  \__  \   |  |/ / |  |  | __ \ \n'
+'      /        \ |   Y  \  / __ \_ |    <  |  |  | \_\ \ \n'
+'     /_______  / |___|  / (____  / |__|_ \ |__|  |___  /\n'
+'             \/      \/        \/       \/           \/ \n')
+		print("           WARP-PLUS-CLOUDFLARE (script)" + " By SHAKIB")
 		print("")
-		animation = ["[■□□□□□□□□□] 10%","[■■□□□□□□□□] 20%", "[■■■□□□□□□□] 30%", "[■■■■□□□□□□] 40%", "[■■■■■□□□□□] 50%", "[■■■■■■□□□□] 60%", "[■■■■■■■□□□] 70%", "[■■■■■■■■□□] 80%", "[■■■■■■■■■□] 90%", "[■■■■■■■■■■] 100%"] 
+		animation = ["[□□□□□□□□□□] 0%","[■□□□□□□□□□] 10%","[■■□□□□□□□□] 20%", "[■■■□□□□□□□] 30%", "[■■■■□□□□□□] 40%", "[■■■■■□□□□□] 50%", "[■■■■■■□□□□] 60%", "[■■■■■■■□□□] 70%", "[■■■■■■■■□□] 80%", "[■■■■■■■■■□] 90%", "[■■■■■■■■■■] 100%"] 
 		for i in range(len(animation)):
 			time.sleep(0.5)
-			sys.stdout.write("\r[+] Preparing... " + animation[i % len(animation)])
+			sys.stdout.write("\r[+] Working... " + animation[i % len(animation)])
 			sys.stdout.flush()
+
 		print(f"\n[-] WORK ON ID: {referrer}")    
-		print(f"[:)] {g} GB has been successfully added to your account.")
-		print(f"[#] Total: {g} GB earned, {b} attempts failed!")
-		print("[*] After 18 seconds, a new request will be sent.")
-		time.sleep(18)
+		print(f"[+] {g} GB has been successfully added to your account.")
+
+		if b > 1:
+			print(f"[#] Total: {g} GB earned, {b} attempts failed!")
+		else:
+			print(f"[#] Total: {g} GB earned, {b} attempt failed!")
+
+		t -= 1
+
+		if t > 0:
+			for i in range(len(animation)):
+				sys.stdout.write("\r[+] Preparing a new request... " + animation[i % len(animation)])
+				sys.stdout.flush()
+				time.sleep(5)
+		
 	else:
 		b = b + 1
 		os.system('cls' if os.name == 'nt' else 'clear')
 		print("")
-		print("                  WARP-PLUS-CLOUDFLARE (script)" + " By Shakib")
+		print("          WARP-PLUS-CLOUDFLARE (script)" + " By SHAKIB")
 		print("")
-		print("[:(] Error when connecting to server.")
+		print("[*] Error when connecting to server.")
 		print(f"[#] Total: {g} GB earned, {b} attempts failed!")
-print('Try again later :)')
+
+print('\nTry again later!)')
